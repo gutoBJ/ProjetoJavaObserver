@@ -35,11 +35,26 @@ public class Principal {
 			
 			AssinanteConcreto assin = new AssinanteConcreto(nome, assunto);
 			
-			edit.assinarEditora(assin, assunto);
-			
+			edit.assinarEditora(assin, assunto, nome);
+
+			System.out.println("Deseja cancelar inscrição? S/N");
+			String res = sc.nextLine();
+
+			if (res.equals("S")) {
+				System.out.println("Digite o número do assunto desejado para cancelamento:");
+				assunto = sc.nextInt();
+				sc.nextLine();
+
+				System.out.println("Digite o nome do assinante desejado para cancelamento:");
+				nome = sc.nextLine();
+
+				edit.cancelarEditora(assin, assunto, nome);
+			} else {
+				continue;
+			}
 		}
 		
-		/*String tipo = "";
+		String tipo = "";
 		
 		if (assunto == 1) {
 			tipo = "Esportes";
@@ -49,7 +64,7 @@ public class Principal {
 			tipo = "Financas";
 		} else {
 			return;
-		}*/
+		}
 		
 		System.out.println("Informe a mensagem de Esportes: ");
 		String mensagem1 = sc.nextLine();
